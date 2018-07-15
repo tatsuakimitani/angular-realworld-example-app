@@ -19,7 +19,7 @@ pipeline {
                 script{
                     dir('.'){
                         sh 'npm --version'
-                        sh 'npm i -g @angular/cli'
+                        sh 'npm i @angular/cli'
                         sh 'npm install'
                     }
                 }

@@ -6,9 +6,4 @@ RUN yum install -y wget unzip
 RUN curl --silent --location https://rpm.nodesource.com/setup_8.x | bash -
 RUN yum -y install nodejs
 
-RUN groupadd -g 990 jenkins
-RUN useradd -u 993 -g 990 jenkins
-
-USER jenkins
-
 ENV EXEC_ENV=TEXT
