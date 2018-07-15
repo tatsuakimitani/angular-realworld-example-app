@@ -4,6 +4,13 @@ FROM centos:7
 RUN yum install -y https://centos7.iuscommunity.org/ius-release.rpm epel-release
 RUN yum install -y wget unzip
 RUN curl --silent --location https://rpm.nodesource.com/setup_8.x | bash -
-RUN yum -y install nodejs
+RUN yum -y install nodejs sudo
+RUN sed -i -e 's/^#\s%wheel\s*ALL=(ALL)\s*ALL$/%wheel\tALL=(ALL)\tALL/g' /etc/sudoers
+RUN sed -i -e 's/^#\s%wheel\s*ALL=(ALL)\s*NOPASSWD: ALL$/jenkins\tALL=(ALL)\tNOPASSWD: ALL/g' /etc/sudoers
+RUN groupadd -g 990 jenkins
+RUN useradd -u 993 -g 990 jenkins
+RUN usermod -aG wheel jenkins
+
+USER jenkins
 
 ENV EXEC_ENV=TEXT
