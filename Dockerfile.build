@@ -3,7 +3,7 @@ FROM centos:7
 # Install Python and Node.js
 RUN yum install -y https://centos7.iuscommunity.org/ius-release.rpm epel-release
 RUN yum install -y wget unzip
-RUN curl --silent --location https://rpm.nodesource.com/setup_8.x | sudo bash -
+RUN curl --silent --location https://rpm.nodesource.com/setup_8.x | bash -
 RUN yum -y install nodejs
 
 ENV EXEC_ENV=TEXT
