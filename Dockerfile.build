@@ -7,8 +7,8 @@ RUN curl --silent --location https://rpm.nodesource.com/setup_8.x | bash -
 RUN yum -y install nodejs sudo
 RUN sed -i -e 's/^#\s%wheel\s*ALL=(ALL)\s*ALL$/%wheel\tALL=(ALL)\tALL/g' /etc/sudoers
 RUN sed -i -e 's/^#\s%wheel\s*ALL=(ALL)\s*NOPASSWD: ALL$/jenkins\tALL=(ALL)\tNOPASSWD: ALL/g' /etc/sudoers
-RUN groupadd -g 990 jenkins
-RUN useradd -u 993 -g 990 jenkins
+RUN groupadd -g 995 jenkins
+RUN useradd -u 997 -g 995 jenkins
 RUN usermod -aG wheel jenkins
 
 USER jenkins
